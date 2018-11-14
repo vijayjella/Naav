@@ -1,0 +1,77 @@
+.login-title{
+	font-weight: 300;
+    color: #e6372e;
+    margin: 0;
+}
+
+.logincloseiconbtn{
+	position: absolute;
+    right: 0px;
+    border-radius: 50%;
+    background: #fff !important;
+    color: red;
+    opacity: 1;
+    top: 5px;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #ffbbb8 !important;
+	margin:0 auto;
+	text-align:center;
+	padding:0 !important;
+	z-index:1;
+	cursor:pointer;
+	font-size: 18px;
+}
+.close:hover{
+	 opacity: 1;
+	  color: red;
+}
+.loginbtnsubmit {
+    color: #fff;
+    font-weight: 500;
+    display: inline-block;
+    border: 2px solid #f8f9fa;
+    height: 50px;
+    min-width: 178px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 24px 24px 24px 0px;
+	background-color:#e6372e;
+	font-weight:bold;
+}
+.inputredborder{
+	border-color:#ffbbb8 !important;
+}
+.inputredborder-addon{
+	border-color:#ffbbb8 !important;
+	color:#e6372e;
+	background-color:#ffdbda !important;
+}
+.loginheaderborder{
+	border-bottom: 1px solid #ffbbb8;
+}
+.loginfooterborder{
+	border-top: 1px solid #ffbbb8;
+}
+.card-header> a{
+	color:#000;
+}
+.logindialog{
+	margin: 80px auto !important;
+}
+.modal-header .close{
+	cursor:pointer;
+}
+#accordion .card-header:after {
+    font-family: 'FontAwesome';  
+    content: "\f068";
+    float: right; 
+	color:#777;
+}
+#accordion .card-header.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\f067"; 
+}
+.forcursor{
+	cursor:pointer;
+}

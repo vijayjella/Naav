@@ -1,0 +1,1014 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+      <!-- Title -->
+      <title>NaAVIC | IIC Technologies</title>
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="ico" sizes="16x16" href="img/favicon.ico">
+      <!--<link rel="icon" href="img/core-img/favicon.ico">-->
+      <!-- Core Stylesheet -->
+      <link href="style.css" rel="stylesheet">
+      <!-- Responsive CSS -->
+      <link href="css/responsive.css" rel="stylesheet">
+      <link href="css/login.css" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet">
+	  <style>
+      .tagline{
+        font-family: 'Raleway', sans-serif;
+        font-size: 30px;
+        line-height: 1.2;
+      }
+      .app-download-btn a p{
+        color: #444444;
+      }
+      .app-download-area{
+        margin-top: 15px;
+      }
+        .export{
+         background-image: url("img/export_black.png")!important;
+         background-repeat:no-repeat !important;
+         background-color: #fff !important;
+         background-position:10px !important;
+		 color:#000;
+		 
+        
+         }
+
+		     .export:hover{
+         background-image: url("img/export.png")!important;
+         background-repeat:no-repeat !important;
+         background-color: #999 !important;
+         background-position:10px !important;
+		 color:#fff;
+        
+         }
+		  .fa-arrow-up:before {
+			content: "\f062" !important;
+		}
+		.btn-red{
+			background-color:#e14d43 !important;
+			cursor:pointer;
+		}
+	  </style>
+      <script language="JavaScript" type="text/javascript">
+		
+		function downloadapp(){
+			var host = "aHR0cDovLzE0LjE0Mi4xMDYuMjA3L25jLXNlcnZpY2VzL3Jlc3Qvc2VuZG1haWw=";
+			var name = $('#txtname').val();
+			var email = $('#txtemail').val();
+			if(name == ""){
+				alert("Name field  should not be empty.")
+                document.contact.txtname.focus();
+                return false
+			}
+			
+			if(email == ""){
+				alert("Email field  should not be empty.")
+                document.contact.txtemail.focus();
+                return false
+			}
+			if(name != "" && email != ""){
+			var filter=/^.+@.+\..{2,3}$/
+			 if (filter.test(email))
+				testresults=true;
+			 else {
+				alert("Please enter a valid email address!");
+				return false;
+				}                  
+			}
+			var settings = {
+			  "async": true,
+			  "crossDomain": true,
+			  "url": atob(host)+"?name="+name+"&email="+email+"&type=appdownload",
+			  "method": "GET",
+			  "headers": {
+				"cache-control": "no-cache",
+				"postman-token": "4d456fdc-2cb8-01c1-13e3-ce72b4d9fbff"
+			  }
+			}
+
+			$.ajax(settings).done(function (response) {
+			  console.log(response);
+			  if(response == "OK"){
+				$(".mailSent").text("Thank you. Download link will be sent to registered mail shortly");
+				$(".mailSent").show();
+				$(".mailSent").fadeOut(5000);
+				setTimeout(function(){
+					location.reload();
+				},5000);
+				
+			  }
+			  else{
+				$(".mailSent").text("Thank you for registration. Mail was not sent");
+				$(".mailSent").show();
+				$(".mailSent").fadeOut(5000);
+				setTimeout(function(){
+					location.reload();
+				},5000);
+			  }
+			});
+		}
+		function contactus(){
+			var host = "aHR0cDovLzE0LjE0Mi4xMDYuMjA3L25jLXNlcnZpY2VzL3Jlc3Qvc2VuZG1haWw=";
+			var name = $('#name').val();
+			var email = $('#email').val();
+			var message = $('#message').val();
+			if(name == ""){
+				alert("Name field  should not be empty.")
+                document.contact.name.focus();
+                return false
+			}
+			var filter=/^.+@.+\..{2,3}$/
+			if(email == ""){
+				alert("Email field  should not be empty.")
+                document.contact.email.focus();
+                return false
+			}
+			if(name != "" && email != ""){
+			var filter=/^.+@.+\..{2,3}$/
+			 if (filter.test(email))
+				testresults=true;
+			 else {
+				alert("Please enter a valid email address!");
+				return false;
+				}                  
+			}
+			/*if (document.contact.message.value=="")
+			{
+				alert("Please enter your message.")
+				document.contact.message.focus();
+				return false
+			}*/
+			var settings = {
+			  "async": true,
+			  "crossDomain": true,
+			  "url": atob(host)+"?name="+name+"&email="+email+"&type=contactus",
+			  "method": "GET",
+			  "headers": {
+				"cache-control": "no-cache",
+				"postman-token": "4d456fdc-2cb8-01c1-13e3-ce72b4d9fbff"
+			  }
+			}
+
+			$.ajax(settings).done(function (response) {
+			  console.log(response);
+			  if(response == "OK"){
+				$(".contactUs").text("Thank you for enquiry. Support team will contact shortly");
+				$(".contactUs").show();
+				$(".contactUs").fadeOut(10000);
+			  }
+			  else{
+				$(".contactUs").text("Thank you for submit. Contact Details was not sent");
+				$(".contactUs").show();
+				$(".contactUs").fadeOut(10000);
+			  }
+			});
+		}
+    </script>
+    <script language="javascript">
+        function echeck(str)
+                 {                
+                        var at="@"
+                        var dot="."
+                        var lat=str.indexOf(at)
+                        var lstr=str.length
+                        var ldot=str.indexOf(dot)
+                        if (str.indexOf(at)==-1){
+                           alert("Invalid E-mail ID")
+                           return false
+                        }                
+                        if (str.indexOf(at)==-1 || str.indexOf(at)==0 || str.indexOf(at)==lstr){
+                           alert("Invalid E-mail ID")
+                           return false
+                        }                
+                        if (str.indexOf(dot)==-1 || str.indexOf(dot)==0 || str.indexOf(dot)==lstr){
+                            alert("Invalid E-mail ID")
+                            return false
+                        }                
+                         if (str.indexOf(at,(lat+1))!=-1){
+                            alert("Invalid E-mail ID")
+                            return false
+                         }                
+                         if (str.substring(lat-1,lat)==dot || str.substring(lat+1,lat+2)==dot){
+                            alert("Invalid E-mail ID")
+                            return false
+                         }                
+                         if (str.indexOf(dot,(lat+2))==-1){
+                            alert("Invalid E-mail ID")
+                            return false
+                         }                        
+                         if (str.indexOf(" ")!=-1){
+                            alert("Invalid E-mail ID")
+                            return false
+                         }                
+                         return true					
+                    }
+        function Validation()
+        {
+            if(document.frmenq.txtname.value=="")
+            {
+                alert("Please enter name.");
+                document.frmenq.txtname.focus();
+                return false;
+            }
+            else if(document.frmenq.txtemail.value=="")
+            {
+                alert("Please enter email.");
+                document.frmenq.txtemail.focus();
+                return false;
+            }
+            else if (echeck(document.frmenq.txtemail.value)==false)
+            {
+                document.frmenq.txtemail.value="";
+                document.frmenq.txtemail.focus();
+                return false;
+            }
+            
+            else if(document.frmenq.f_phone.value=="")
+            {
+                alert("Please enter your phone number.");
+                document.frmenq.f_phone.focus();
+                return false;
+            }
+            else if(isNaN(document.frmenq.f_phone.value))
+            {
+                alert("Please enter valid mobile number.");
+                document.frmenq.f_phone.value="";
+                document.frmenq.f_phone.focus();
+                return false;
+            }
+        
+        
+            else if(document.frmenq.f_comment.value=="")
+            {
+                alert("Please enter your comments.");
+                document.frmenq.f_comment.focus();
+                return false;
+            }
+        
+        }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127981362-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());    
+      gtag('config', 'UA-127981362-1');
+    </script>
+   </head>
+   <body>
+      <!-- Preloader Start -->
+      <div id="preloader">
+         <div class="colorlib-load"></div>
+      </div>
+      <!-- ***** Header Area Start ***** -->
+      <header class="header_area animated">
+         <div class="container">
+            <div class="row">
+               <!-- Menu Area Start -->
+               <div class="col-12 col-md-12 col-sm-12 col-lg-12 col-xl-12" style="padding-left:0px;">
+                  <div class="menu_area">
+                     <nav class="navbar navbar-expand-lg navbar-light">
+                        <!-- Logo -->
+                        <a class="navbar-brand" href="#"><img src="img/bg-img/naavic_logo_app.png" alt="" class="mobile_logo_width"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+						data-target="#ca-navbar" aria-controls="ca-navbar" aria-expanded="false"
+						aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <!-- Menu Area -->
+                        <div class="collapse navbar-collapse" id="ca-navbar">
+                           <ul class="navbar-nav ml-auto" id="nav">
+                              <li class="nav-item active"><a class="nav-link" href="#home">Home</a></li>
+                              <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                              <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                              <li class="nav-item"><a class="nav-link" href="#screenshot">Gallery</a></li>
+                              <!--   <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li> -->
+                              <!--  <li class="nav-item"><a class="nav-link" href="#">Blog</a></li> -->
+                              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                              <li class="nav-item line_s"><a class="nav-link" href="#">|</a></li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="https://www.facebook.com/Naavic-App-269976443648177/?modal=admin_todo_tour" target="_blank">
+                                <img src="img/facebook.png" style="width: 20px;"></a>
+                              </li>
+                           </ul>
+                           <div class="sing-up-button d-lg-none">
+                              <a href="#">Login</a>
+                           </div>
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+               <!-- Signup btn -->
+         <!--       <div class="col-xl-2 topright_secwidth">
+                  
+               </div> -->
+            </div>
+         </div>
+      </header>
+      <!-- ***** Header Area End ***** -->
+      <!-- ***** Login Area Code start ***** -->
+      <div id="Loginmodal" class="modal fade" role="dialog">
+         <div class="modal-dialog logindialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+               <div class="modal-header loginheaderborder">
+                  <h6 class="login-title m-0 p-0" style="color:#000; font-size:17px; font-weight:bold;">Please register to receive the NaAVIC app download link.</h6>
+                  <button type="button" class="close logincloseiconbtn" data-dismiss="modal"><i class="fa fa-close"></i></button>
+               </div>
+               <div class="modal-body">                    
+                    <form name="frmenq" id="frmenq" method="post" class="infield rounded-fields form-preset" onsubmit="return Validation();"   action="enquiryprocess.php">
+                     <div class="form-group">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon inputredborder-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" placeholder="Name" name="txtname" class="form-control inputredborder" id="txtname" required>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <div class="input-group input-group-lg">
+                           <span class="input-group-addon  inputredborder-addon"><i class="fa fa-lock"></i></span>
+                           <input type="text" name="txtemail" id="txtemail" class="form-control inputredborder" placeholder="Email" required>
+                        </div>
+                     </div>
+                     <!-- <div id="remember" class="checkbox">
+                        <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                     </div> -->
+                     <div style="margin:0 auto; text-align:center;">
+                        <button type="button" class="btn submit-btn" onclick="downloadapp()">Submit</button>
+                        <!-- <input type="submit" value="Submit"><a href="http://nautiluscharts.com/Naavic_test/send_form_email.php">Email Form</a> -->
+                     </div>
+					 <div class="mailSent" style="display:none; color:#000; margin-top:10px; margin-left:6px;"></div>
+                  </form>
+               </div>
+               <!-- <div class="modal-footer loginfooterborder" style="display:block;">
+                  <div class="clearfix">
+                     <span class="float-left"><a href="#" class="forgot-password">Sign Up</a></span>
+                     <span class="float-right"><a href="#" class="forgot-password">Forgot password?</a></span>
+                  </div>
+               </div> -->
+            </div>
+         </div>
+      </div>
+      <!-- ***** Login Area Code End ***** -->
+      <!-- ***** Wellcome Area Start ***** -->
+      <section class="wellcome_area clearfix" id="home">
+         <div class="container h-100">
+            <div class="row h-100 align-items-center">
+               <div class="col-md-7 col-12">
+                  <div class="wellcome-heading">
+                     <!-- <h2 style="font-size:40px; margin-left:5px;">NaAVIC App</h4> -->
+                    <h4 class="tagline text-center">Making your experience at sea a safe and enjoyable one!</h4>
+                     <!-- <button type="button" class="btn submit-btn1" style="margin-top:15px; cursor:pointer;">Try it</button> -->
+                   <div class="app-download-area">
+                        <div class="app-download-btn wow fadeInUp mx-auto" 
+						data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;" data-toggle="modal" data-target="#Loginmodal">
+                           <!-- Google Store Btn -->
+                           <!-- <a href="#" class="export">
+                              <span class="mb-0" style="font-size:18px;   margin-left:20px;">Download App</span>
+                           </a> -->
+                           <a href="#">
+                              <i class="fa fa-download"></i>
+                              <p class="mb-0">Download App</p>
+                           </a>
+                        </div>
+            
+                     </div>
+                  </div>
+                  <!-- <div class="get-start-area">
+                     <form action="#" method="post" class="form-inline">
+                         <input type="email" class="form-control email" placeholder="name@company.com">
+                         <input type="submit" class="submit" value="Get Started">
+                     </form>
+                     
+                     </div>-->
+               </div>
+            </div>
+         </div>
+         <!-- Welcome thumb -->
+         <div class="welcome-thumb wow fadeInDown" data-wow-delay="0.5s">
+            <img src="img/bg-img/welcome-img.png" alt="">
+         </div>
+      </section>
+      <!-- ***** Wellcome Area End ***** -->
+      <!-- ***** Special Area Start ***** -->
+      <section class="special-area bg-white section_padding_100" id="about" style="padding-top:60px;">
+         <div class="container">
+            <div class="row">
+               <div class="col-12">
+                  <!-- Section Heading Area -->
+                  <div class="section-heading text-center special_description_content">
+                     <h2>Welcome to NaAVIC</h2>
+                     <div class="line-shape"></div>
+                  </div>
+               </div>
+            </div>
+			               <div class="row">
+                  <div class="col-lg-6">
+                     <div class="special_description_img">
+                        <img src="img/bg-img/special.png" alt="">
+                     </div>
+                  </div>
+                  <div class="col-lg-5 col-xl-5 ml-xl-auto">
+                     <div class="special_description_content">                       
+                        <p style="text-align:justify;">NaAVIC is a free Electronic Chart System in your pocket that will make marine navigation easy, safe, reliable, and fun.</p>
+						 <p style="text-align:justify;">This free app is for recreational boaters who want to navigate the surrounding waters safely while exploring new and interesting locations to fish, dive, eat etc. The app offers a range of features to make navigation easier and reliable that are delivered through a clear and intuitive interface designed specifically for mobile devices and tablets.</p>
+						 <!--<p style="text-align:justify;">This app also offers to explore recreational hotspots like diving, fishing,
+					 surfing etc. based on other NaAVIC user reporting/NaAVIC community reporting.</p> -->
+					 <p style="text-align:justify;">By utilizing a cloud-based approach with data streaming, the NaAVIC ECS enables all members of an expedition to more actively engage in the voyage as well as to share that voyage with fellow ‘marine friends’, hence building a community of like-minded users.</p>
+					 
+						  <p style="font-size:22px; color:#000;margin-bottom:0px;">Coming Shortly....</p>
+                        <div class="app-download-area" style="margin-top: 10px;">
+                           <div class="app-download-btn wow fadeInUp" data-wow-delay="0.2s">
+                              <!-- Google Store Btn -->
+                              <a href="#">
+                                 <i class="fa fa-android"></i>
+                                 <p class="mb-0"><span>available on</span> Google Store</p>
+                              </a>
+                           </div>
+                           <div class="app-download-btn wow fadeInDown" data-wow-delay="0.4s">
+                              <!-- Apple Store Btn -->
+                              <a href="#">
+                                 <i class="fa fa-apple"></i>
+                                 <p class="mb-0"><span>available on</span> Apple Store</p>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+			   </div>
+			   </section>
+			   
+			   
+			   <section class="clients-feedback-area bg-white section_padding_100 team clearfix" id="features"> 
+			   <div class="container">
+			   <div class="row">
+				   <div class="col-12">
+					  <!-- Heading Text -->
+					  <div class="section-heading special_description_content text-center">
+						 <h2>Awesome Features</h2>
+						 <div class="line-shape"></div>
+					  </div>
+				   </div>
+				</div>
+			<div class="col-sm-12">	
+			<div class="" style="position:absolute; z-index:1; width:100%; left: 0; top: 45%; transform: translate(0, -50%);">
+				<div class="clearfix text-center" id="block-1">
+					<button type="button" class="btn btn-danger btn-red rounded-circle myBtn float-left p-0" disabled style="cursor:default; width:30px; height:30px; margin-top: 3px;"><i class="fa fa-chevron-left"></i></button>
+					<button type="button" class="btn btn-danger btn-red rounded-circle myBtn2 float-right p-0" style="width:30px; height:30px;"><i class="fa fa-chevron-right"></i></button>
+				</div>
+				<div class="clearfix text-center" id="block-2">
+					<button type="button" class="btn btn-danger btn-red rounded-circle float-left p-0" id="myBtn" style="width:30px; height:30px; margin-top: 3px;"><i class="fa fa-chevron-left"></i></button>
+					<button type="button" class="btn btn-danger btn-red rounded-circle float-right p-0" id="myBtn2" style="width:30px; height:30px;"><i class="fa fa-chevron-right"></i></button>
+				</div>
+				<div class="clearfix text-center" id="block-3">
+					<button type="button" class="btn btn-danger btn-red rounded-circle myBtn float-left p-0" style="width:30px; height:30px; margin-top: 3px;"><i class="fa fa-chevron-left"></i></button>
+					<button type="button" class="btn btn-danger btn-red rounded-circle myBtn2 float-right p-0" disabled style="cursor:default; width:30px; height:30px;"><i class="fa fa-chevron-right"></i></button>
+				</div>
+				</div>
+			<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			  <div class="carousel-inner">
+				<div class="carousel-item active featres_screen1">
+					 <div class="row">
+					   <!-- Single Special Area -->
+					   <div class="col-12 col-md-4 padding_handle_right">
+						  <div class="single-special text-center wow" data-wow-delay="0s">
+							 <div class="single-icon">
+								<img src="img/icon-img/Base Maps.png" alt="">
+							 </div>
+							 <h4>Marine Base Map</h4>
+							 <p>Supports IHO S-57 charts and S-52 presentation and provides seamless data coverage through navigation.</p>
+						  </div>
+					   </div>
+					   <!-- Single Special Area -->
+					   <div class="col-12 col-md-4">
+						  <div class="single-special text-center wow" data-wow-delay="0s">
+							 <div class="single-icon">
+								<img src="img/icon-img/Route Management.png" alt="">
+							 </div>
+							 <h4>Route Management</h4>
+							 <p>Comprehensive Route Creation and Navigation.  
+							 
+							
+							 Import and Export Waypoints into RTZ or KML formats.</p>
+						  </div>
+					   </div>
+					   <!-- Single Special Area -->
+					   <div class="col-12 col-md-4 padding_handle_left">
+						  <div class="single-special text-center wow" data-wow-delay="0s">
+							 <div class="single-icon">
+								<img src="img/icon-img/Geo Tagging.png" alt="">
+							 </div>
+							 <h4>Offline Navigation</h4>
+							 <p>Download Maps into Device<br/> and Navigate Offline when <br/>mobile network not available.</p>
+						  </div>
+					   </div>
+					</div>
+					<div class="row">
+					   <!-- Single Special Area -->
+					  
+					   <!-- Single Special Area -->
+					   <div class="col-12 col-md-4 padding_handle_right">
+						  <div class="single-special text-center wow" data-wow-delay="0s" style="height:184px;">
+							 <div class="single-icon">
+								<img src="img/22.png" alt="">
+							 </div>
+							 <h4>North up or Head up Display Orientation</h4>
+							 <p>Orientation of Charts for North up and Head up Display.
+							 </p>
+						  </div>
+					   </div>
+					   <!-- Single Special Area -->
+					   <div class="col-12 col-md-4">
+						  <div class="single-special text-center wow" data-wow-delay="0s">
+							 <div class="single-icon">
+								<img src="img/33.png" alt="">
+							 </div>
+							 <h4>Route Planning and Management Tools</h4>
+							<p>Create Way Points and plan routes<br/> to navigate between them. Edit,<br/> Clear and Redirect Waypoints as wish
+							 </p>
+						  </div>
+					   </div>
+						<!-- Single Special Area -->
+					   <div class="col-12 col-md-4 padding_handle_left">
+						  <div class="single-special text-center wow" data-wow-delay="0s">
+							 <div class="single-icon">
+								<img src="img/66.png" alt="">
+							 </div>
+							 <h4>Displays Position, Speed and  <br>Course</h4>
+							  <p>Displays boat Course on Ground, Speed on Ground when GPS activated. Display real time instruments including speed, course, bearing etc.
+							 </p>
+						  </div>
+					   </div>
+					</div>
+				</div>
+				<div class="carousel-item featres_screen2" style="height:407px;">
+				  <div class="row">
+					   <!-- Single Special Area -->
+					   <div class="col-12 col-md-4 padding_handle_right">
+						  <div class="single-special text-center" data-wow-delay="0s">
+							 <div class="single-icon">
+								<img src="img/88.png" alt="">
+							 </div>
+							 <h4>Location and Feature Query Tools</h4>
+							 <p>Display Ship location on <br>screen and Query tool</br> provides more details on features
+							 </p>
+						  </div>
+					   </div>
+					   <!-- Single Special Area -->
+					   <div class="col-12 col-md-4">
+						  <div class="single-special text-center" data-wow-delay="0s">
+							 <div class="single-icon">
+								<img src="img/99.png" alt="">
+							 </div>
+							 <h4>Mobile GPS Integration</h4>
+							<p>Plot your position in real time using your device with GPS Integration and track positioning, tracks history and waypoints.
+							 </p>
+						  </div>
+					   </div>
+						<!-- Single Special Area -->
+					   <div class="col-12 col-md-4 padding_handle_left">
+						  <div class="single-special text-center" data-wow-delay="0s">
+							 <div class="single-icon">
+								<img src="img/10.png" alt="">
+							 </div>
+							 <h4> Point of Interest</h4>
+							 <p> Find recreational hotspots (diving, fishing, surfing etc.) 
+							 based on other NaAVIC user reporting/ NaAVIC community reporting.
+							 </p>
+						  </div>
+					   </div>
+					</div>
+			
+					<div class="row">
+					  
+					   <div class="col-12 col-md-4 padding_handle_right">
+						  <div class="single-special text-center" data-wow-delay="0s" style="height:184px;">
+							 <div class="single-icon">
+								<img src="img/55.png" alt="">
+							 </div>
+							 <h4>Day and Night Color Palettes</h4>
+							 <p>Visualize data in Day & Night color modes avoid user’s eyes needing to readjust to a difference light intensity.
+							 </p>
+						  </div>
+					   </div>
+					   <!-- Single Special Area -->
+						<div class="col-12 col-md-4">
+						  <div class="single-special text-center" data-wow-delay="0s" style="height:184px;">
+							 <div class="single-icon">
+								<img src="img/44.png" alt="">
+							 </div>
+							 <h4> Notifications & Alarms</h4>
+							<p>Be notified with audio for registered users sharing information. 
+							Get Alarm for dangerous depth approach and notification display on mobile. 
+							 </p>
+						  </div>
+					   </div>
+					   
+						<!-- Single Special Area -->
+					   <div class="col-12 col-md-4 padding_handle_left">
+						  <div class="single-special text-center" data-wow-delay="0s" style="height:184px;">
+							 <div class="single-icon">
+								<img src="img/77.png" alt="">
+							 </div>
+							 <h4> Real-time Route Monitoring</h4>
+							  <p>Monitoring of Waypoint, Course,<br> Distances and Cross track deviation <br>from preset limits in real-time
+							 </p>
+						  </div>
+					   </div>
+					</div>
+				</div>
+				<div class="carousel-item featres_screen3" style="height:407px;">
+					<div class="row">
+					   <!-- Single Special Area -->
+					   <div class="col-12 col-md-4 padding_handle_right">
+						  <div class="single-special text-center" data-wow-delay="0.2s">
+							 <div class="single-icon">
+								<img src="img/11.png" alt="">
+							 </div>
+							 <h4>Data Layers</h4>
+							 <p>Streaming additional data layers over base<br> map like high resolution bathymetry, </br>imagery, hazards, aids, facilities etc.
+							 </p>
+						  </div>
+					   </div>
+					   <!-- Single Special Area -->
+					   <div class="col-12 col-md-4">
+						  <div class="single-special text-center" data-wow-delay="0.3s">
+							 <div class="single-icon">
+								<img src="img/12.png" alt="">
+							 </div>
+							 <h4>Measure Distances</h4>
+							 <p>Measure distance and bearing <br/>between vessel and known point <br/>or between two known points.
+							 </p>
+						  </div>
+					   </div>
+					</div>
+				</div>
+			  </div>
+			
+			</div>
+			</div>
+    <!--   <div class="row">
+				<div class="col-sm-12">
+				<div class="clearfix text-center" id="block-1">
+					<button type="button" class="btn btn-danger btn-red rounded-circle myBtn" disabled style="cursor:default;"><i class="fa fa-chevron-left"></i></button>
+					<button type="button" class="btn btn-danger btn-red rounded-circle myBtn2"><i class="fa fa-chevron-right"></i></button>
+				</div>
+				<div class="clearfix text-center" id="block-2">
+					<button type="button" class="btn btn-danger btn-red rounded-circle" id="myBtn"><i class="fa fa-chevron-left"></i></button>
+					<button type="button" class="btn btn-danger btn-red rounded-circle" id="myBtn2"><i class="fa fa-chevron-right"></i></button>
+				</div>
+				<div class="clearfix text-center" id="block-3">
+					<button type="button" class="btn btn-danger btn-red rounded-circle myBtn"><i class="fa fa-chevron-left"></i></button>
+					<button type="button" class="btn btn-danger btn-red rounded-circle myBtn2" disabled style="cursor:default;"><i class="fa fa-chevron-right"></i></button>
+				</div>
+				</div>
+			</div> -->
+			
+			
+       </div>
+         <!-- Special Description Area -->
+      </section>
+   
+
+      <!-- ***** Awesome Features End ***** -->
+      <!-- ***** More Features popup Start ***** -->
+      <div id="morefeatures" class="modal fade" role="dialog">
+         <div class="modal-dialog logindialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h3 style="color:#e6372e;" class="p-0 m-0">More Features</h3>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+               </div>
+               <div class="modal-body" style="padding:0;height:auto;max-height:500px; overflow:auto;">
+                  <div id="accordion">
+                     <div class="card">
+                        <div class="card-header collapsed forcursor" data-toggle="collapse" href="#collapseOne">
+                           <a class="card-link">
+                           <img src="img/icon-img/marine traffic.png" alt="marine traffic.png" class="single-feature-icon">
+                           Marine Traffic
+                           </a>
+                        </div>
+                        <div id="collapseOne" class="collapse" data-parent="#accordion">
+                           <div class="card-body">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card">
+                        <div class="card-header collapsed forcursor" data-toggle="collapse" href="#collapseTwo">
+                           <img src="img/icon-img/Distance Calculator.png" alt="Distance Calculator.png" class="single-feature-icon">
+                           <a class="card-link">
+                           Distance Calculator
+                           </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                           <div class="card-body">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card">
+                        <div class="card-header collapsed forcursor" data-toggle="collapse" href="#collapseThree">
+                           <img src="img/icon-img/Add Objects to Map.png" alt="Add Objects to Map.png" class="single-feature-icon">
+                           <a class="collapsed card-link">
+                           Add Objects to Map
+                           </a>
+                        </div>
+                        <div id="collapseThree" class="collapse" data-parent="#accordion">
+                           <div class="card-body">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card">
+                        <div class="card-header collapsed forcursor" data-toggle="collapse" href="#collapseFour">
+                           <img src="img/icon-img/Naavic Messenger.png" alt="Naavic Messenger.png" class="single-feature-icon">
+                           <a class="card-link">
+                           NaAVIC Messenger
+                           </a>
+                        </div>
+                        <div id="collapseFour" class="collapse" data-parent="#accordion">
+                           <div class="card-body">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card">
+                        <div class="card-header collapsed forcursor" data-toggle="collapse" href="#collapseFive">
+                           <img src="img/icon-img/Tracking.png" alt="Tracking.png" class="single-feature-icon">
+                           <a class="card-link">
+                           Tracking
+                           </a>
+                        </div>
+                        <div id="collapseFive" class="collapse" data-parent="#accordion">
+                           <div class="card-body">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                           </div>
+                        </div>
+                     </div>
+                     <div class="card">
+                        <div class="card-header collapsed forcursor" data-toggle="collapse" href="#collapseSix">
+                           <img src="img/icon-img/Alerts Notifications.png" alt="Naavic Messenger.png" class="single-feature-icon">
+                           <a class="card-link">
+                           Alerts Notifications
+                           </a>
+                        </div>
+                        <div id="collapseSix" class="collapse" data-parent="#accordion">
+                           <div class="card-body">
+                              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!--<ul class="list-group">
+                     <li class="list-group-item"><img src="img/icon-img/marine traffic.png" alt="marine traffic.png" class="single-feature-icon"><a href="#">Marine Traffic</a></li>
+                     <li class="list-group-item"><img src="img/icon-img/Distance Calculator.png" alt="Distance Calculator.png" class="single-feature-icon"><a href="#">Distance Calculator</a></li>
+                     <li class="list-group-item"><img src="img/icon-img/Add Objects to Map.png" alt="Add Objects to Map.png" class="single-feature-icon"><a href="#">Add Objects to Map</a></li>
+                     <li class="list-group-item"> <img src="img/icon-img/Naavic Messenger.png" alt="Naavic Messenger.png" class="single-feature-icon"><a href="#">Naavic Messenger</a></li>
+                     <li class="list-group-item"> <img src="img/icon-img/Tracking.png" alt="Tracking.png" class="single-feature-icon"><a href="#">Tracking</a></li>
+                     <li class="list-group-item"> <img src="img/icon-img/Alerts Notifications.png" alt="Naavic Messenger.png" class="single-feature-icon"><a href="#">Alerts Notifications</a></li>
+                     </ul>-->
+               </div>
+               <div class="modal-footer">
+                  <div style="margin:0 auto; text-align:center;">
+                     <button type="submit" class="btn submit-btn" data-dismiss="modal">OK</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- ***** More Features popup End ***** -->
+      <!-- ***** Cool Facts Area Start ***** -->
+<!--      <section class="cool_facts_area clearfix">
+      </section> -->
+      <!-- ***** Cool Facts Area End ***** -->
+      <!-- ***** App Screenshots Area Start ***** -->
+      <section class="app-screenshots-area bg-white section_padding_0_100 clearfix" id="screenshot">
+         <div class="container">
+            <div class="row">
+               <div class="col-12 text-center">
+                  <!-- Heading Text  -->
+                  <div class="section-heading special_description_content">
+                     <h2>Gallery</h2>
+                     <div class="line-shape"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-fluid">
+            <div class="row">
+               <div class="col-12">
+                  <!-- App Screenshots Slides  -->
+                  <div class="app_screenshots_slides owl-carousel">
+                     <div class="single-shot">
+                        <img src="img/scr-img/splash.png" alt="">
+                     </div>
+                     <!-- <div class="single-shot">
+                        <img src="img/scr-img/menu.png" alt="">
+                     </div> -->
+                     <div class="single-shot">
+                        <img src="img/scr-img/importroutesortracks.png" alt="">
+                     </div>
+                     <div class="single-shot">
+                        <img src="img/scr-img/importedroute.png" alt="">
+                     </div>
+                     <div class="single-shot">
+                        <img src="img/scr-img/routemonitor.png" alt="">
+                     </div>
+                     <div class="single-shot">
+                        <img src="img/scr-img/waypoints.png" alt="">
+                     </div>
+                     <!-- <div class="single-shot">
+                        <img src="img/scr-img/marinetraffic.png" alt="">
+                     </div> -->
+                     <!-- <div class="single-shot">
+                        <img src="img/scr-img/addobject.png" alt="">
+                     </div> -->
+                     <div class="single-shot">
+                        <img src="img/scr-img/addobjects.png" alt="">
+                     </div>
+                     <div class="single-shot">
+                        <img src="img/scr-img/messenger.png" alt="">
+                     </div>
+                     <!-- <div class="single-shot">
+                        <img src="img/scr-img/units.png" alt="">
+                     </div>
+                     <div class="single-shot">
+                        <img src="img/scr-img/settings.png" alt="">
+                     </div> -->
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!-- ***** Client Feedback Area End ***** -->
+      <!-- ***** CTA Area Start ***** -->
+<!--      <section class="our-monthly-membership section_padding_50 clearfix">
+      </section> -->
+      <!-- ***** CTA Area End ***** -->
+      <!-- ***** Our Team Area Start ***** -->
+      <!-- ***** Our Team Area End ***** -->
+      <!-- ***** Contact Us Area Start ***** -->
+      <section class="footer-contact-area section_padding_100 clearfix" id="contact">
+         <div class="container">
+            <div class="row">
+              <!-- <div class="col-md-6">
+                  <div class="section-heading">
+                     <h2 style="color:#fff;">Get in touch with us!</h2>
+                     <div class="line-shape"></div>
+                  </div>
+                  <div class="footer-text">
+                     <p>
+                        IIC Technologies Ltd<br>
+                        8-2-350/5/B-22 <br>
+                        Road No 3, Banjara Hills,<br>
+                        Hyderabad, Telangana, <br>
+                        India 500 034 <br>
+                        Tel: +91 (40) 6791 4444 <br>
+                        Fax: +91 (40) 6791 4455 <br>
+						<a href="https://www.facebook.com/Naavic-App-269976443648177/?modal=admin_todo_tour"  target="_blank" ><img src="img/facebook.png" style="margin-top:10px;"></a>
+                     </p>
+					 
+                  </div>
+                  <div class="address-text">
+                  </div>
+                  <div class="phone-text">
+                  </div>
+                  <div class="email-text">
+                  </div>
+               </div> -->
+               <div class="col-md-6 m-auto">
+                  <div class="section-heading text-center">
+                      <h2 style="color:#fff;">Get in touch with us!</h2>
+                      <div class="line-shape m-auto"></div>
+                   </div>
+                  <!-- Form Start-->
+                  <div class="contact_from">
+                     <form action="#" method="post">
+                        <!-- Message Input Area Start -->
+                        <div class="contact_input_area">
+                           <div class="row">
+                              <!-- Single Input Area Start -->
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" required>
+                                 </div>
+                              </div>
+                              <!-- Single Input Area Start -->
+                              <div class="col-md-12">
+                                 <div class="form-group">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your E-mail" required>
+                                 </div>
+                              </div>
+                              <!-- Single Input Area Start -->
+                              <div class="col-12">
+                                 <div class="form-group">
+                                    <textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Your Message *" required></textarea>
+                                 </div>
+                              </div>
+                              <!-- Single Input Area Start -->
+                              <div class="col-12 text-center">
+                                 <button type="button" class="btn submit-btn" onclick="contactus()">Send Now</button>
+                              </div>
+							  <div class="contactUs" style="display:none; color:#fff; margin-top:10px; margin-left:11px;"</div>
+                           </div>
+                        </div>
+                        <!-- Message Input Area End -->
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- ***** Contact Us Area End ***** -->
+      <!-- ***** Footer Area Start ***** -->
+      <footer class="footer-social-icon text-center section_padding_70 clearfix" style="background:#363b3f;">
+         <!-- footer logo -->
+         <div class="footer-text">
+         </div>
+         <!-- social icon-->
+         <div class="footer-social-icon">
+            
+         <!--    <a href="#"><img src="img/twitter.png"></a>
+            <a href="#"><img src="img/instagram.png"></a> 
+            <a href="#"><img src="img/google-plus.png"></a>-->
+         </div>
+         <div class="footer-menu">
+            <nav>
+               <ul>
+                  <!-- <li><a href="#">About</a></li> -->
+                  <li><a href="TermsAndConditions.html" target="_blank">Terms of Use</a></li>
+                  <li><a href="PrivacyPolicy.html" target="_blank">Privacy Policy</a></li>
+                  <li><a href="mailto:info@naavic.net" target="_blank">Contact</a></li>
+               </ul>
+            </nav>
+         </div>
+         <!-- Foooter Text-->
+         <div class="copyright-text">
+            <!-- ***** Removing this text is now allowed! This template is licensed under CC BY 3.0 ***** -->
+            <p>Copyright &copy; 2018 <span class="text-white">NaAVIC<sup>TM</sup> </span>Powered by <span class="text-white">Nautilus Cloud </span>and Designed by <a href="http://www.iictechnologies.com" class="text-white" target="_blank">IIC Technologies</a></p>
+         </div>
+      </footer>
+      <!-- ***** Footer Area Start ***** -->
+      <!-- Jquery-2.2.4 JS -->
+      <script src="js/jquery-2.2.4.min.js"></script>
+      <!-- Popper js -->
+      <script src="js/popper.min.js"></script>
+      <!-- Bootstrap-4 Beta JS -->
+      <script src="js/bootstrap.min.js"></script>
+      <!-- All Plugins JS -->
+      <script src="js/plugins.js"></script>
+      <!-- Slick Slider Js-->
+      <script src="js/slick.min.js"></script>
+      <!-- Footer Reveal JS -->
+      <script src="js/footer-reveal.min.js"></script>
+      <!-- Active JS -->
+      <script src="js/active.js"></script>
+	   <script>
+		$(document).ready(function(){
+			// Activate the Carousel, but pause it from the start
+			 $("#myCarousel").carousel({interval: false, wrap: false});
+			$("#block-1").show();
+			$("#block-2").hide();
+			$("#block-3").hide();
+			// Go to the second item
+			$(".myBtn").click(function(){
+				$("#myCarousel").carousel("prev");
+				$("#block-2").show();
+				$("#block-3").hide();
+			});
+
+			// Go to the third item
+			$(".myBtn2").click(function(){
+				$("#myCarousel").carousel("next");
+				$("#block-2").show();
+				$("#block-1").hide();
+			});
+			
+			
+			$("#myBtn").click(function(){
+				$("#myCarousel").carousel("prev");
+				$("#block-2").hide();
+				$("#block-1").show();
+			});
+
+			// Go to the third item
+			$("#myBtn2").click(function(){
+				$("#myCarousel").carousel("next");
+				$("#block-2").hide();
+				$("#block-3").show();
+			});
+		
+			
+		});
+	  </script> 
+   </body>
+</html>
